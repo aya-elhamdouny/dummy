@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.example.dummy.Movie" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
 
     <ImageView
         android:id="@+id/imageViewHeader"
@@ -17,14 +26,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/header" />
 
+
     <ImageView
         android:id="@+id/imageViewPoster"
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@null"
+        app:imageUrl="@{movie.url}"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewHeader"
         app:layout_constraintDimensionRatio="w,3:2"
+        app:layout_constraintEnd_toStartOf="@+id/posterName"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
         app:srcCompat="@drawable/poster" />
@@ -34,25 +46,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="Beauty and the beast"
+        android:text="@{movie.title}"
         android:textColor="@color/black"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toStartOf="@+id/bookmark_btn"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewPoster"
         app:layout_constraintTop_toBottomOf="@+id/imageViewHeader" />
 
     <ImageButton
         android:id="@+id/bookmark_btn"
-        android:layout_width="0dp"
-        android:layout_height="19dp"
+        android:layout_width="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:background="@null"
         android:contentDescription="@null"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toEndOf="@+id/posterName"
         app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
         app:srcCompat="@drawable/ic_bookmark"
+        app:tint="#FF1744"
         tools:ignore="VectorDrawableCompat" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -73,10 +85,9 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="14dp"
         android:text="13 march | Comedy | 113 min"
-        android:textSize="20dp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/imageViewPoster"
         app:layout_constraintTop_toBottomOf="@+id/posterName" />
@@ -91,22 +102,44 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginRight="7dp"
+        android:backgroundTint="#FF1744"
         android:text="Rent From13$"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/barrier2" />
 
     <Button
         android:id="@+id/button2"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        android:backgroundTint="#FF1744"
+        android:layout_marginLeft="7dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Buy from 20$"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toTopOf="@+id/barrier2" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@{movie.details}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
