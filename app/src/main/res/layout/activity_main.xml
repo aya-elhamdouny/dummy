@@ -130,6 +130,7 @@
 
         <TextView
             android:id="@+id/details"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -143,21 +144,25 @@
             app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
-        <TextView android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@={viewmodel.movieName}"
+        <TextView
+            android:background="#FF1744"
+            android:id="@+id/textView"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="@{viewmodel.movieName}"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/details" />
 
-
-        <EditText android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:ems="10"
-            android:text="@{viewmodel.movieName}"
+            android:text="@={viewmodel.movieName}"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

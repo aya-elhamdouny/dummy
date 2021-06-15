@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this).get(viewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         binding.lifecycleOwner = this
+        binding.viewmodel= viewModel
         binding.movie = movie
     }
 }
